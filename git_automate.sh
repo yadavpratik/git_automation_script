@@ -38,14 +38,14 @@ git_init(){
 git_commit(){
 	echo "checking for git commit..."
 	sleep 04	
-	if ! git commit -m "update commit" 2>/dev/null
+	if ! git commit -m "automated commit" 2>/dev/null
 	then
 		echo "Author identity unknown"
 		read -p "please provide your github email : " email
 		read -p "please provide your name : " name
 		echo "please wait we authenticating your identity..."
-	    git config --global user.email "$email"
-       	git config --global user.name "$name"			       
+	   	git config --global user.email "$email"
+       		git config --global user.name "$name"			       
 		echo "user identify succesfully"
 
 	fi
