@@ -3,7 +3,9 @@
 #set -x
 
 
+
 git_install(){
+
 	echo "checking for git Install in your system..."
 	if ! git --version >/dev/null
 	then
@@ -47,8 +49,10 @@ git_commit(){
 	   	git config --global user.email "$email"
        		git config --global user.name "$name"			       
 		echo "user identify succesfully"
-
+		
 	fi
+	echo "user Email : $email"
+        echo "userr name : $name"
 }
 
 git_remote_dir(){
@@ -60,8 +64,10 @@ git_remote_dir(){
 		read -p "Enter the repo path : " repo
 		git remote add origin "$repo"
 		echo "remote origin added sucessfully"
-
+			
 	fi	
+	echo "Remote dir :" 
+	git remote -v show
 }
 
 git_push(){
@@ -79,6 +85,7 @@ git_push(){
 
 main(){
 echo "Welcome to git Automation script"
+echo "Executing start ..."
 git_install
 git_init
 git add .
