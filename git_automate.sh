@@ -90,6 +90,7 @@ main(){
 echo "Welcome to git Automation script"
 echo "Executing start ..."
 git_install
+echo "\n"
 git_init
 git add .
 git_commit
