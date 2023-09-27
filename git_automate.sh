@@ -40,8 +40,8 @@ git_init(){
 git_commit(){
 	echo "checking for git commit..."
 	sleep 04
-	reg_email=git config --global user.email
-	reg_name=git config --global user.name
+	reg_email=$(git config --global user.email)
+	reg_name=$(git config --global user.name)
 
 	if ! git commit -m "automated commit" 2>/dev/null
 	then
