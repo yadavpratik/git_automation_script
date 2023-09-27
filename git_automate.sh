@@ -39,20 +39,23 @@ git_init(){
 
 git_commit(){
 	echo "checking for git commit..."
-	sleep 04	
+	sleep 04
+	reg_email=git config --global user.email
+	reg_name=git config --global user.name
+
 	if ! git commit -m "automated commit" 2>/dev/null
 	then
 		echo "Author identity unknown"
-		read -p "please provide your github email : " email
-		read -p "please provide your name : " name
+		read -p "please provide your github email : "user_email
+		read -p "please provide your name : "user_name
 		echo "please wait we authenticating your identity..."
-	   	git config --global user.email "$email"
-       		git config --global user.name "$name"			       
+	   	reg_email "$email"
+       		reg_name "$name"			       
 		echo "user identify succesfully"
 		
 	fi
-	echo "user Email : $email"
-        echo "userr name : $name"
+	echo "user Email : $reg_email"
+        echo "userr name : $reg_name"
 }
 
 git_remote_dir(){
